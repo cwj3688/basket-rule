@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
@@ -40,6 +41,14 @@ export function Navbar() {
         >
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2">
+                    <div className="relative w-8 h-8">
+                        <Image
+                            src="/images/baket-rule-icon.png"
+                            alt="Logo"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
                     <span className={cn("text-xl font-bold tracking-tight transition-colors", !isTransparent ? "text-primary" : "text-white")}>
                         {dict.nav.brand}
                     </span>
