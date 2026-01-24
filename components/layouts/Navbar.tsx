@@ -4,7 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Globe } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -26,9 +32,7 @@ export function Navbar() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    const toggleLanguage = () => {
-        setLanguage(language === 'ko' ? 'en' : 'ko');
-    };
+
 
     return (
         <nav
@@ -64,14 +68,29 @@ export function Navbar() {
                     {/* <Link href="/community" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.community}</Link> */}
                 </div>
                 <div className="flex items-center space-x-2">
-                    <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={toggleLanguage}
-                        className={cn("font-mono text-xs hover:bg-white/10", !isTransparent && "hover:bg-accent hover:text-accent-foreground")}
-                    >
-                        {language === 'ko' ? 'EN' : 'KO'}
-                    </Button>
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                size="sm"
+                                className={cn("font-mono text-xs hover:bg-white/10 flex items-center gap-1", !isTransparent && "hover:bg-accent hover:text-accent-foreground")}
+                            >
+                                <Globe className="h-4 w-4" />
+                                <span className="uppercase">{language}</span>
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" className="bg-white">
+                            <DropdownMenuItem onClick={() => setLanguage('ko')}>
+                                한국어
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setLanguage('en')}>
+                                English
+                            </DropdownMenuItem>
+                            <DropdownMenuItem onClick={() => setLanguage('ja')}>
+                                日本語
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
                     <div className="lg:hidden">
                         <Sheet open={isOpen} onOpenChange={setIsOpen}>
                             <SheetTrigger asChild>

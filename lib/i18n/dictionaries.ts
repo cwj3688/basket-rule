@@ -1,4 +1,4 @@
-export type Language = 'ko' | 'en';
+export type Language = 'ko' | 'en' | 'ja';
 
 export const dictionary = {
     ko: {
@@ -373,6 +373,193 @@ export const dictionary = {
         common: {
             loading: "Loading...",
             no_results: "No results found."
+        }
+    },
+    ja: {
+        nav: {
+            brand: "BasketRule",
+            home: "ホーム",
+            rules: "ルール",
+            compare: "比較",
+            signals: "審判シグナル",
+            local: "ローカルルール",
+            gear: "用具",
+            quiz: "クイズ",
+            community: "コミュニティ"
+        },
+        hero: {
+            season_update: "2024-2025シーズン ルール更新",
+            slogan_1: "誤解は",
+            slogan_2: "減らし",
+            slogan_3: "楽しさは",
+            slogan_4: "増やす",
+            subtext_1: "あなたの手のひらのバスケットボール審判、BasketRule",
+            subtext_2: "生活体育バスケットボール判定の全基準をここで確認してください。",
+            search_placeholder: "ルール検索 (例: トラベリング, アンスポーツマンライクファウル)",
+            search_hint: "検索例: ギャザーステップ, シリンダー, 3秒",
+            quick_access: "クイックアクセス"
+        },
+        home: {
+            qa_rules_desc: "ルールライブラリ",
+            qa_compare_desc: "ルール比較モード",
+            qa_signals_desc: "審判シグナル",
+            qa_local_desc: "ローカルルール",
+            qa_access_text: "{desc}へ移動"
+        },
+        rules_page: {
+            title: "ルールライブラリ",
+            description: "バスケットボールのルールに関する詳細な説明です。",
+            tabs: {
+                fiba: "FIBA / KBA",
+                nba: "NBA"
+            },
+            search_placeholder: "ルールを検索...",
+            no_results: "\"{query}\" に対する検索結果がありません。"
+        },
+        rule_card: {
+            easy_summary: "簡単な要約",
+            official_text: "公式原文",
+            no_data: "データがありません。"
+        },
+        signals_page: {
+            title: "公式シグナル",
+            description: "FIBAバスケットボールの試合で使用される公式審判シグナルのガイドです。カードをクリックすると詳細説明が表示されます。",
+            categories: {
+                "All": "すべて",
+                "Game Clock": "ゲームクロック",
+                "Scoring": "得点",
+                "Substitution and Time-out": "交代とタイムアウト",
+                "Informative": "情報伝達",
+                "Violations": "バイオレーション",
+                "Number of Players": "選手の番号",
+                "Fouls": "ファウル",
+                "Special Fouls": "特別なファウル",
+                "Free-Throw Penalty Administration": "フリースローの罰則処理",
+                "Free-Throw Administration – Lead Official": "フリースロー処理（リード）",
+                "Free-Throw Administration – Trail / Centre Official": "フリースロー処理（トレイル/センター）"
+            },
+            dialog: {
+                description: "説明",
+                animated_demo: "アニメーション例あり"
+            },
+            no_image: "画像なし"
+        },
+        compare_page: {
+            title: "リーグ別ルール比較",
+            description: "FIBA (国際/KBA) と NBA のルールを並べて比較します。",
+            card_title: "主な違い",
+            card_desc: "リーグ間の主要なルールの違いです。",
+            table: {
+                feature: "項目",
+                fiba: "FIBA (KBA)",
+                nba: "NBA"
+            },
+            note: "注: 韓国の多くのアマチュアリーグ（KBAなど）はFIBAルールに従いますが、一部ローカルルールが適用されることがあります。"
+        },
+        local_rules_page: {
+            title: "ローカルルールガイド",
+            description: "韓国の生活体育バスケットボールでよく使われるローカル規定と変則ルールを確認しましょう。",
+            tabs: {
+                division: "K-Division (公式)",
+                amateur: "一般同好会",
+                practice: "自主練習"
+            },
+            badge: {
+                official: "FIBA標準",
+                variation: "ローカル変則"
+            },
+            checklist_title: "試合前チェックリスト",
+            country_selector: {
+                label: "地域選択",
+                kr: "韓国 (Korea)",
+                us: "アメリカ (Streetball)",
+                ph: "フィリピン (Ligang Labas)"
+            },
+            cards: {
+                game_time: {
+                    title: "試合時間 (Game Time)",
+                    desc: "生活体育の時間運営規定",
+                    running_time: "ランニングタイム適用 (4Q終了2分前のみデッドタイム)",
+                    seven_min: "クォーターあたり7分 (一般大会基準)",
+                    overtime: "延長戦: 先に得点したチームの勝利 (ゴールデンゴール)"
+                },
+                eligibility: {
+                    title: "加点および選手資格 (Points & Eligibility)",
+                    desc: "参加資格およびハンディキャップ",
+                    plus_one: "+1点制度 (女性、40代以上、中学生など)",
+                    ex_pro: "選手出身 (高校以上) クォーター当り1名制限",
+                    roster_limit: "ワイルドカード(未登録選手) 出場不可"
+                }
+            }
+        },
+        plus_one_calc: {
+            title: "加点(+1点)計算機",
+            desc: "女性/ユース/シニア選手の得点を計算してみましょう。",
+            is_target: "加点対象選手ですか？",
+            shot_type: "どんなシュートを決めましたか？",
+            result: "得点認定",
+            normal: "通常",
+            plus_one: "対象 (+1点)",
+            field_goal_2: "2点シュート",
+            field_goal_3: "3点シュート",
+            free_throw: "フリースロー"
+        },
+        gear_page: {
+            title: "Safety & Gear (用具規定)",
+            description: "2024-2025シーズン 強化されたユニフォームおよびアクセサリー着用規定チェックリスト。",
+            uniform: {
+                title: "ユニフォーム (Uniform)",
+                desc: "必須遵守事項",
+                items: {
+                    tucked: "シャツイン (Tucked in): 試合中、シャツは必ずパンツの中に入れなければなりません。",
+                    color: "配色の統一: 上下のメインカラーは同一でなければなりません。(別色のインナー着用時、ユニフォームのメインカラーと一致させる必要あり)",
+                    number: "番号表記: 前後の番号が明確に識別可能でなければなりません。テープ貼り付けなどの臨時措置は許可されない場合があります。",
+                    socks: "ソックス: チーム員間のソックスの色統一を推奨 (大会により異なる)。"
+                }
+            },
+            accessories: {
+                title: "アクセサリー許容基準",
+                desc: "安全のための着用ガイド",
+                table: {
+                    type: "区分",
+                    item: "品目",
+                    allowed: "許容可否",
+                    jewelry: "装飾品",
+                    jewelry_items: "ネックレス、ピアス、指輪、ブレスレット",
+                    padding: "サポーター",
+                    padding_items: "膝/肘のパッド付きサポーター",
+                    glasses: "眼鏡",
+                    glasses_items: "一般眼鏡 (金属フレーム)",
+                    goggles: "ゴーグル",
+                    goggles_items: "スポーツゴーグル (プラスチック)",
+                    compression: "コンプレッション",
+                    compression_items: "アームスリーブ、レッグスリーブ"
+                },
+                note: "* 上記基準はKBAおよびFIBA一般規定に従いますが、大会要項により異なる場合があります。"
+            }
+        },
+        quiz_page: {
+            title: "Basket IQ",
+            questions_count: "Q.{current}/{total}",
+            result_title: "Quiz 完了!",
+            result_desc: "あなたのバスケットボールIQのスコアは？",
+            perfect_msg: "完璧です！審判に挑戦してみましょう。",
+            fail_msg: "もう少し勉強が必要ですね！",
+            restart: "再挑戦する",
+            correct: "正解です！ 👏",
+            incorrect: "不正解です。 😅",
+            next: "次の問題"
+        },
+        community_page: {
+            title: "コミュニティ",
+            description: "バスケファンと一緒に交流する空間です。",
+            coming_soon_title: "コミュニティ機能準備中",
+            coming_soon_desc: "より良い交流空間のために鋭意開発中です。もう少々お待ちください！",
+            back_home: "ホームに戻る"
+        },
+        common: {
+            loading: "読み込み中...",
+            no_results: "検索結果がありません。"
         }
     }
 };
