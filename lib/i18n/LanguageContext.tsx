@@ -18,10 +18,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [language, setLanguage] = useState<Language>('ko');
 
     useEffect(() => {
-        // Persist language preference
+        // 1. Check saved preference from local storage
         const saved = localStorage.getItem('basketrule-lang') as Language;
         if (saved && (saved === 'ko' || saved === 'en')) {
             setLanguage(saved);
+            return;
+        }
+
+        // 2. If no preference, check browser language
+        if (typeof navigator !== 'undefined') {
+            const browserLang = navigator.language;
+            if (!browserLang.toLowerCase().startsWith('ko')) {
+                setLanguage('en');
+            }
         }
     }, []);
 
