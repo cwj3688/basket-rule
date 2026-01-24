@@ -16,16 +16,30 @@ function RulesContent() {
 
     const filteredRules = rules.filter((rule) => {
         const term = query.toLowerCase();
-        // Search in current language
-        const matchesTitle = rule.title[language].toLowerCase().includes(term);
-        const matchesDesc = rule.description[language].toLowerCase().includes(term);
 
-        // Deep search in content (optional: search only current lang or match both?)
-        // Let's search in current language content for relevance
-        const matchesFiba = rule.fiba2025?.[language].summary.toLowerCase().includes(term) ||
-            rule.fiba2025?.[language].fullText.toLowerCase().includes(term);
-        const matchesNba = rule.nba?.[language].summary.toLowerCase().includes(term) ||
-            rule.nba?.[language].fullText.toLowerCase().includes(term);
+        // Search in BOTH languages for title and description
+        const matchesTitle =
+            rule.title.ko.toLowerCase().includes(term) ||
+            rule.title.en.toLowerCase().includes(term);
+
+        const matchesDesc =
+            rule.description.ko.toLowerCase().includes(term) ||
+            rule.description.en.toLowerCase().includes(term);
+
+        // Search in BOTH languages for content
+        const matchesFiba = rule.fiba2025 ? (
+            rule.fiba2025.ko.summary.toLowerCase().includes(term) ||
+            rule.fiba2025.ko.fullText.toLowerCase().includes(term) ||
+            rule.fiba2025.en.summary.toLowerCase().includes(term) ||
+            rule.fiba2025.en.fullText.toLowerCase().includes(term)
+        ) : false;
+
+        const matchesNba = rule.nba ? (
+            rule.nba.ko.summary.toLowerCase().includes(term) ||
+            rule.nba.ko.fullText.toLowerCase().includes(term) ||
+            rule.nba.en.summary.toLowerCase().includes(term) ||
+            rule.nba.en.fullText.toLowerCase().includes(term)
+        ) : false;
 
         return matchesTitle || matchesDesc || matchesFiba || matchesNba;
     });

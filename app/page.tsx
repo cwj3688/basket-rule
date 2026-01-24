@@ -61,6 +61,7 @@ export default function Home() {
               <SearchBar
                 onSearch={handleSearch}
                 placeholder={dict.hero.search_placeholder}
+                variant="hero"
               />
             </div>
             <p className="text-xs text-zinc-400 mt-3 text-center px-1 font-medium tracking-wide">

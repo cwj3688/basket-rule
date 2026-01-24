@@ -17,6 +17,8 @@ import { MainContent } from "@/components/layouts/MainContent";
 
 // ... existing imports
 
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -33,6 +35,7 @@ export default function RootLayout({
           <Footer />
         </LanguageProvider>
       </body>
+      <GoogleAnalytics gaId="G-KV64F346ZN" />
     </html>
   );
 }

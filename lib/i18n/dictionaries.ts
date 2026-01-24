@@ -4,6 +4,7 @@ export const dictionary = {
     ko: {
         nav: {
             brand: "BasketRule",
+            home: "홈",
             rules: "룰북",
             compare: "비교",
             signals: "수신호",
@@ -175,6 +176,13 @@ export const dictionary = {
             incorrect: "오답입니다. 😅",
             next: "다음 문제"
         },
+        community_page: {
+            title: "커뮤니티",
+            description: "농구 팬들과 함께 소통하는 공간입니다.",
+            coming_soon_title: "커뮤니티 기능 준비 중",
+            coming_soon_desc: "더 나은 소통 공간을 위해 열심히 개발 중입니다. 곧 만나보실 수 있습니다!",
+            back_home: "홈으로 돌아가기"
+        },
         common: {
             loading: "로딩 중...",
             no_results: "검색 결과가 없습니다."
@@ -183,6 +191,7 @@ export const dictionary = {
     en: {
         nav: {
             brand: "BasketRule",
+            home: "Home",
             rules: "Rules",
             compare: "Compare",
             signals: "Signals",
@@ -353,6 +362,13 @@ export const dictionary = {
             correct: "Correct! 👏",
             incorrect: "Wrong. 😅",
             next: "Next Question"
+        },
+        community_page: {
+            title: "Community",
+            description: "A place to connect with basketball fans.",
+            coming_soon_title: "Community Coming Soon",
+            coming_soon_desc: "We are working hard to build a great community space. Stay tuned!",
+            back_home: "Back to Home"
         },
         common: {
             loading: "Loading...",
