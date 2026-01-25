@@ -71,6 +71,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381021720725575"
+          crossOrigin="anonymous"
+        ></script>
+      </head>
       <body className={cn(inter.className, "min-h-screen bg-background flex flex-col")} suppressHydrationWarning>
         <LanguageProvider>
           <Navbar />

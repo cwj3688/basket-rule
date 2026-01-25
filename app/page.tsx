@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { SearchBar } from "@/components/SearchBar";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { BookOpen, Scale, HandMetal, MapPin } from "lucide-react";
+import { BookOpen, Scale, HandMetal, MapPin, Trophy, Gavel } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function Home() {
@@ -20,6 +20,8 @@ export default function Home() {
 
   const quickAccessItems = [
     { href: "/rules", icon: BookOpen, title: dict.nav.rules, desc: dict.home.qa_rules_desc, color: "text-blue-500", bg: "bg-blue-500/10" },
+    { href: "/quiz", icon: Trophy, title: dict.nav.quiz, desc: dict.quiz_page.title, color: "text-yellow-500", bg: "bg-yellow-500/10" },
+    { href: "/community", icon: Gavel, title: dict.nav.community, desc: dict.community_page.title, color: "text-rose-500", bg: "bg-rose-500/10" },
     { href: "/compare", icon: Scale, title: dict.nav.compare, desc: dict.home.qa_compare_desc, color: "text-orange-500", bg: "bg-orange-500/10" },
     { href: "/signals", icon: HandMetal, title: dict.nav.signals, desc: dict.home.qa_signals_desc, color: "text-green-500", bg: "bg-green-500/10" },
     { href: "/local-rules", icon: MapPin, title: dict.nav.local, desc: dict.home.qa_local_desc, color: "text-purple-500", bg: "bg-purple-500/10" },
@@ -74,7 +76,7 @@ export default function Home() {
       {/* Quick Links */}
       <section className="container mx-auto px-4 py-16 md:py-32 animate-in fade-in slide-in-from-bottom-10 delay-500 fill-mode-forwards">
         <h2 className="text-2xl font-bold tracking-tight mb-8 text-center sm:text-left">{dict.hero.quick_access}</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {quickAccessItems.map((item, i) => (
             <Link key={item.href} href={item.href} className="block h-full group relative overflow-hidden rounded-xl transition-all duration-300 hover:shadow-lg">
               <Card className="h-full border bg-card text-card-foreground transition-colors hover:border-primary/50">

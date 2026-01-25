@@ -11,7 +11,7 @@ export const dictionary = {
             local: "로컬룰",
             gear: "장비",
             quiz: "퀴즈",
-            community: "커뮤니티"
+            community: "판정 가이드"
         },
         hero: {
             season_update: "2024-2025 시즌 규칙 업데이트",
@@ -177,10 +177,10 @@ export const dictionary = {
             next: "다음 문제"
         },
         community_page: {
-            title: "커뮤니티",
-            description: "농구 팬들과 함께 소통하는 공간입니다.",
-            coming_soon_title: "커뮤니티 기능 준비 중",
-            coming_soon_desc: "더 나은 소통 공간을 위해 열심히 개발 중입니다. 곧 만나보실 수 있습니다!",
+            title: "판정 가이드",
+            description: "실제 경기 영상과 함께 배우는 농구 판정 사례입니다.",
+            coming_soon_title: "판정 사례 업데이트 중",
+            coming_soon_desc: "더 많은 판정 사례를 준비하고 있습니다.",
             back_home: "홈으로 돌아가기"
         },
         common: {
@@ -198,7 +198,7 @@ export const dictionary = {
             local: "Local",
             gear: "Gear",
             quiz: "Quiz",
-            community: "Community"
+            community: "Case Studies"
         },
         hero: {
             season_update: "2024-2025 Season Rules Updated",
@@ -364,10 +364,10 @@ export const dictionary = {
             next: "Next Question"
         },
         community_page: {
-            title: "Community",
-            description: "A place to connect with basketball fans.",
-            coming_soon_title: "Community Coming Soon",
-            coming_soon_desc: "We are working hard to build a great community space. Stay tuned!",
+            title: "Case Studies",
+            description: "Learn basketball officiating with real game scenarios.",
+            coming_soon_title: "More Cases Coming Soon",
+            coming_soon_desc: "We are preparing more interesting scenarios.",
             back_home: "Back to Home"
         },
         common: {
@@ -385,7 +385,7 @@ export const dictionary = {
             local: "ローカルルール",
             gear: "用具",
             quiz: "クイズ",
-            community: "コミュニティ"
+            community: "ケーススタディ"
         },
         hero: {
             season_update: "2024-2025シーズン ルール更新",
@@ -551,10 +551,10 @@ export const dictionary = {
             next: "次の問題"
         },
         community_page: {
-            title: "コミュニティ",
-            description: "バスケファンと一緒に交流する空間です。",
-            coming_soon_title: "コミュニティ機能準備中",
-            coming_soon_desc: "より良い交流空間のために鋭意開発中です。もう少々お待ちください！",
+            title: "ケーススタディ",
+            description: "実際の試合映像と共に学ぶバスケットボール判定事例です。",
+            coming_soon_title: "事例追加準備中",
+            coming_soon_desc: "より多くの判定事例を準備しています。",
             back_home: "ホームに戻る"
         },
         common: {
