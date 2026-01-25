@@ -79,30 +79,30 @@ export default function RootLayout({
           </MainContent>
           <Footer />
         </LanguageProvider>
+        <GoogleAnalytics gaId="G-59WKF6G4P1" />
+        <Script
+          id="schema-org"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "BasketRule",
+              url: "https://basket-rules.pages.dev",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://basket-rules.pages.dev/rules?q={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381021720725575"
+          crossOrigin="anonymous"
+          strategy="beforeInteractive"
+        />
       </body>
-      <GoogleAnalytics gaId="G-59WKF6G4P1" />
-      <Script
-        id="schema-org"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "WebSite",
-            name: "BasketRule",
-            url: "https://basket-rules.pages.dev",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: "https://basket-rules.pages.dev/rules?q={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
-          }),
-        }}
-      />
-      <Script
-        async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381021720725575"
-        crossOrigin="anonymous"
-      />
     </html>
   );
 }
