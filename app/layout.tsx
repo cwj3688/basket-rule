@@ -18,6 +18,7 @@ import { MainContent } from "@/components/layouts/MainContent";
 // ... existing imports
 
 import { GoogleAnalytics } from '@next/third-parties/google';
+import Script from "next/script";
 
 export default function RootLayout({
   children,
@@ -36,6 +37,11 @@ export default function RootLayout({
         </LanguageProvider>
       </body>
       <GoogleAnalytics gaId="G-59WKF6G4P1" />
+      <Script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381021720725575"
+        crossOrigin="anonymous"
+      />
     </html>
   );
 }
