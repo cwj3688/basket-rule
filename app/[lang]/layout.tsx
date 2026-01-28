@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+import "@/app/globals.css";
 import { Navbar } from "@/components/layouts/Navbar";
 import { Footer } from "@/components/layouts/Footer";
 import { cn } from "@/lib/utils";
@@ -9,26 +9,33 @@ import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://basket-rules.pages.dev"), // Replace with actual domain if different
+  metadataBase: new URL("https://basket-rules.pages.dev"),
   title: {
-    default: "BasketRule - Basketball Rules Simplified",
+    default: "BasketRule - 농구 규칙의 모든 것 (FIBA/NBA/KBA)",
     template: "%s | BasketRule",
   },
-  description: "Understanding basketball rules made easy. FIBA, NBA, and local rules explained. Compare rules, check referee signals, and learn local regulations.",
-  keywords: ["Basketball Rules", "FIBA Rules", "NBA Rules", "KBL Rules", "Basketball Referee Signals", "Basketball Guide"],
+  description: "농구 규칙, 더 이상 헷갈리지 마세요. 트래블링, 3초 룰, 파울 기준 등 FIBA와 NBA 규정을 비교하고 심판 수신호까지 한눈에 확인하는 필수 농구 가이드 BasketRule입니다.",
+  keywords: [
+    // Korean
+    "농구 규칙", "농구 트래블링", "더블 드리블", "3초 룰", "농구 파울", "농구 심판 수신호", "개더 스텝", "제로 스텝", "자유투 규칙", "농구 가이드",
+    // English
+    "Basketball Rules", "FIBA Rules", "NBA Rules", "Traveling rule", "Gather step", "Double dribble", "Basketball fouls", "Ref signals",
+    // Japanese
+    "バスケ ルール", "トラベリング", "ダブルドリブル", "3秒ルール", "バスケ 審判", "ゼロステップ", "バスケットボール"
+  ],
   authors: [{ name: "BasketRule Team" }],
   creator: "BasketRule",
   publisher: "BasketRule",
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "ko_KR",
     url: "https://basket-rules.pages.dev",
-    title: "BasketRule - Basketball Rules Simplified",
-    description: "The ultimate guide to basketball rules. Compare FIBA, NBA, and local regulations easily.",
+    title: "BasketRule - 농구 규칙의 모든 것",
+    description: "트래블링부터 최신 FIBA 규정까지. 동호인 농구인을 위한 가장 쉬운 규칙 해설서.",
     siteName: "BasketRule",
     images: [
       {
-        url: "/og-image.png", // Ensure this image exists or use a placeholder
+        url: "/og-image.png",
         width: 1200,
         height: 630,
         alt: "BasketRule Preview",
@@ -37,9 +44,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "BasketRule - Basketball Rules Simplified",
-    description: "The ultimate guide to basketball rules. Compare FIBA, NBA, and local regulations easily.",
-    images: ["/og-image.png"], // Same as OG image
+    title: "BasketRule - 농구 규칙의 모든 것",
+    description: "트래블링부터 최신 FIBA 규정까지. 동호인 농구인을 위한 가장 쉬운 규칙 해설서.",
+    images: ["/og-image.png"],
   },
   robots: {
     index: true,
@@ -64,22 +71,26 @@ import { MainContent } from "@/components/layouts/MainContent";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import Script from "next/script";
 
-export default function RootLayout({
+import { i18n, type Locale } from "@/i18n-config";
+
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ lang: string }>;
 }>) {
+  const { lang } = await params as { lang: Locale };
+
   return (
-    <html lang="en">
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381021720725575"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
+    <html lang={lang}>
+
       <body className={cn(inter.className, "min-h-screen bg-background flex flex-col")} suppressHydrationWarning>
-        <LanguageProvider>
+        <LanguageProvider initialLanguage={lang}>
           <Navbar />
           <MainContent>
             {children}
@@ -103,6 +114,11 @@ export default function RootLayout({
               },
             }),
           }}
+        />
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3381021720725575"
+          crossOrigin="anonymous"
         />
       </body>
     </html>

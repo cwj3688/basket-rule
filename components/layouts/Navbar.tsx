@@ -21,7 +21,7 @@ export function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    const isHome = pathname === "/";
+    const isHome = pathname === `/${language}`;
     const isTransparent = isHome && !isScrolled;
 
     useEffect(() => {
@@ -44,7 +44,7 @@ export function Navbar() {
             )}
         >
             <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-                <Link href="/" className="flex items-center space-x-2">
+                <Link href={`/${language}`} className="flex items-center space-x-2">
                     <div className="relative w-8 h-8">
                         <Image
                             src="/images/baket-rule-icon.png"
@@ -58,14 +58,15 @@ export function Navbar() {
                     </span>
                 </Link>
                 <div className="hidden lg:flex items-center space-x-6">
-                    <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.home}</Link>
-                    <Link href="/rules" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.rules}</Link>
-                    <Link href="/signals" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.signals}</Link>
-                    <Link href="/gear" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.gear}</Link>
-                    <Link href="/compare" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.compare}</Link>
-                    <Link href="/local-rules" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.local}</Link>
-                    <Link href="/quiz" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.quiz}</Link>
-                    <Link href="/community" className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.community}</Link>
+                    <Link href={`/${language}`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.home}</Link>
+                    <Link href={`/${language}/rules`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.rules}</Link>
+                    <Link href={`/${language}/signals`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.signals}</Link>
+                    <Link href={`/${language}/gear`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.gear}</Link>
+                    <Link href={`/${language}/compare`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.compare}</Link>
+                    <Link href={`/${language}/local-rules`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.local}</Link>
+                    <Link href={`/${language}/quiz`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.quiz}</Link>
+                    <Link href={`/${language}/community`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.community}</Link>
+                    <Link href={`/${language}/blog`} className="text-sm font-medium hover:text-primary transition-colors">{dict.nav.blog}</Link>
                 </div>
                 <div className="flex items-center space-x-2">
                     <DropdownMenu>
@@ -101,14 +102,15 @@ export function Navbar() {
                             </SheetTrigger>
                             <SheetContent side="right">
                                 <div className="flex flex-col space-y-4 mt-8">
-                                    <Link href="/" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.home}</Link>
-                                    <Link href="/rules" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.rules}</Link>
-                                    <Link href="/signals" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.signals}</Link>
-                                    <Link href="/gear" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.gear}</Link>
-                                    <Link href="/compare" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.compare}</Link>
-                                    <Link href="/local-rules" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.local}</Link>
-                                    <Link href="/quiz" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.quiz}</Link>
-                                    <Link href="/community" onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.community}</Link>
+                                    <Link href={`/${language}`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.home}</Link>
+                                    <Link href={`/${language}/rules`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.rules}</Link>
+                                    <Link href={`/${language}/signals`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.signals}</Link>
+                                    <Link href={`/${language}/gear`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.gear}</Link>
+                                    <Link href={`/${language}/compare`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.compare}</Link>
+                                    <Link href={`/${language}/local-rules`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.local}</Link>
+                                    <Link href={`/${language}/quiz`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.quiz}</Link>
+                                    <Link href={`/${language}/community`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.community}</Link>
+                                    <Link href={`/${language}/blog`} onClick={() => setIsOpen(false)} className="text-lg font-medium hover:text-primary transition-colors">{dict.nav.blog}</Link>
                                 </div>
                             </SheetContent>
                         </Sheet>

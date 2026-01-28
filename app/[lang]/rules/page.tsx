@@ -77,6 +77,8 @@ function RulesContent() {
         }
     };
 
+    const initialTab = searchParams.get("tab") || "fiba";
+
     return (
         <div className="container mx-auto px-4 py-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 mb-8">
@@ -89,7 +91,7 @@ function RulesContent() {
                 </div>
             </div>
 
-            <Tabs defaultValue="fiba" className="space-y-8">
+            <Tabs defaultValue={initialTab} className="space-y-8">
                 <TabsList className="grid w-full grid-cols-3 max-w-[600px]">
                     <TabsTrigger value="fiba">{dict.rules_page.tabs.fiba}</TabsTrigger>
                     <TabsTrigger value="nba">{dict.rules_page.tabs.nba}</TabsTrigger>
@@ -99,7 +101,7 @@ function RulesContent() {
                 <TabsContent value="fiba" className="space-y-6">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {filteredRules.map((rule) => (
-                            <RuleCard key={rule.id} rule={rule} defaultTab="fiba2025" />
+                            <RuleCard key={rule.id} rule={rule} defaultTab="fiba2025" href={`/${language}/rules/${rule.id}`} />
                         ))}
                         {filteredRules.length === 0 && (
                             <div className="col-span-full text-center py-12 text-muted-foreground">
@@ -112,7 +114,7 @@ function RulesContent() {
                 <TabsContent value="nba" className="space-y-6">
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                         {filteredRules.map((rule) => (
-                            <RuleCard key={rule.id} rule={rule} defaultTab="nba" />
+                            <RuleCard key={rule.id} rule={rule} defaultTab="nba" href={`/${language}/rules/${rule.id}`} />
                         ))}
                         {filteredRules.length === 0 && (
                             <div className="col-span-full text-center py-12 text-muted-foreground">
@@ -155,7 +157,7 @@ function RulesContent() {
                                         <CardContent className="p-4 pt-2 mt-auto">
                                             <div className="flex items-center justify-between">
                                                 <div className="text-xs font-semibold text-muted-foreground">
-                                                    {language === 'ko' ? "판정 결과" : "Verdict"}
+                                                    {dict.rules_page.verdict}
                                                 </div>
                                                 <Badge variant="outline" className={`${getVerdictColor(scenario.verdict).split(' ')[0]} border-0 bg-transparent p-0`}>
                                                     {scenario.verdictLabel[language]}
@@ -198,7 +200,7 @@ function RulesContent() {
 
                                         <div className="space-y-4">
                                             <h4 className="font-semibold text-lg flex items-center">
-                                                🧐 {language === 'ko' ? "공식 해설" : "Official Interpretation"}
+                                                🧐 {dict.rules_page.official_interpretation}
                                             </h4>
                                             <p className="text-muted-foreground leading-relaxed p-4 bg-muted/50 rounded-lg">
                                                 {scenario.explanation[language]}

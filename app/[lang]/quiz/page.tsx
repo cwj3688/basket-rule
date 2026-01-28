@@ -97,10 +97,10 @@ export default function QuizPage() {
 
     const getRank = (score: number, total: number) => {
         const percentage = (score / total) * 100;
-        if (percentage === 100) return { title: { ko: "FIBA 국제 심판", en: "FIBA Official", ja: "FIBA国際審判" }, color: "text-purple-600", icon: Crown };
-        if (percentage >= 80) return { title: { ko: "프로 심판", en: "Pro Referee", ja: "プロ審判" }, color: "text-blue-600", icon: Medal };
-        if (percentage >= 50) return { title: { ko: "동호회 심판", en: "Amateur Referee", ja: "アマチュア審判" }, color: "text-green-600", icon: Star };
-        return { title: { ko: "루키", en: "Rookie", ja: "ルーキー" }, color: "text-orange-500", icon: Trophy };
+        if (percentage === 100) return { title: dict.quiz_page.ranks.fiba, color: "text-purple-600", icon: Crown };
+        if (percentage >= 80) return { title: dict.quiz_page.ranks.pro, color: "text-blue-600", icon: Medal };
+        if (percentage >= 50) return { title: dict.quiz_page.ranks.amateur, color: "text-green-600", icon: Star };
+        return { title: dict.quiz_page.ranks.rookie, color: "text-orange-500", icon: Trophy };
     };
 
     if (showResult) {
@@ -114,7 +114,7 @@ export default function QuizPage() {
                         <RankIcon className={cn("h-20 w-20 mx-auto mb-4 drop-shadow-lg", rank.color)} />
                         <CardTitle className="text-3xl font-black">{dict.quiz_page.result_title}</CardTitle>
                         <div className={cn("text-xl font-bold mt-2", rank.color)}>
-                            {rank.title[language]}
+                            {rank.title}
                         </div>
                     </CardHeader>
                     <CardContent>
@@ -123,11 +123,11 @@ export default function QuizPage() {
                             <span className="text-2xl text-muted-foreground font-medium">/{questions.length}</span>
                         </div>
                         <p className="text-muted-foreground mb-4">
-                            {score === questions.length ? "Perfect! You know the rules inside out." : "Keep practicing to become a Master!"}
+                            {score === questions.length ? dict.quiz_page.perfect_msg : dict.quiz_page.fail_msg}
                         </p>
                         {maxStreak > 2 && (
                             <div className="inline-flex items-center px-3 py-1 rounded-full bg-orange-100 text-orange-700 text-sm font-bold">
-                                🔥 {language === 'ko' ? `최대 ${maxStreak}연속 정답!` : `Max Streak: ${maxStreak}!`}
+                                {dict.quiz_page.streak.replace("{n}", maxStreak.toString())}
                             </div>
                         )}
                     </CardContent>
@@ -149,7 +149,7 @@ export default function QuizPage() {
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                         {streak > 1 && (
                             <span className="text-orange-600 font-bold animate-pulse">
-                                🔥 {streak} Combo!
+                                {dict.quiz_page.combo.replace("{n}", streak.toString())}
                             </span>
                         )}
                     </div>
@@ -208,7 +208,7 @@ export default function QuizPage() {
                             }
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                            <span className="font-semibold text-foreground mr-2">Explanation:</span>
+                            <span className="font-semibold text-foreground mr-2">{dict.quiz_page.explanation}</span>
                             {currentExplanation}
                         </p>
                         <Button onClick={nextQuestion} className="w-full mt-4" size="lg">

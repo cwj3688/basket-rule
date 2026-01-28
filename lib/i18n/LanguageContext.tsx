@@ -1,6 +1,7 @@
 "use client"
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { dictionary, Language } from './dictionaries';
 
 type Dictionary = typeof dictionary.ko;
@@ -14,29 +15,35 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: React.ReactNode }) {
-    const [language, setLanguage] = useState<Language>('ko');
+export function LanguageProvider({
+    children,
+    initialLanguage = 'ko'
+}: {
+    children: React.ReactNode;
+    initialLanguage?: Language;
+}) {
+    const [language, setLanguage] = useState<Language>(initialLanguage);
+    const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
-        // 1. Check saved preference from local storage
-        const saved = localStorage.getItem('basketrule-lang') as Language;
-        if (saved && (saved === 'ko' || saved === 'en')) {
-            setLanguage(saved);
-            return;
-        }
-
-        // 2. If no preference, check browser language
-        if (typeof navigator !== 'undefined') {
-            const browserLang = navigator.language;
-            if (!browserLang.toLowerCase().startsWith('ko')) {
-                setLanguage('en');
-            }
-        }
-    }, []);
+        setLanguage(initialLanguage);
+    }, [initialLanguage]);
 
     const handleSetLanguage = (lang: Language) => {
         setLanguage(lang);
         localStorage.setItem('basketrule-lang', lang);
+
+        // Redirect to new locale path
+        if (pathname) {
+            const segments = pathname.split('/');
+            // segments[0] is empty, segments[1] is locale
+            if (segments.length > 1) {
+                segments[1] = lang;
+                const newPath = segments.join('/');
+                router.push(newPath);
+            }
+        }
     };
 
     const t = (path: string): string => {

@@ -11,7 +11,8 @@ export const dictionary = {
             local: "로컬룰",
             gear: "장비",
             quiz: "퀴즈",
-            community: "판정 가이드"
+            community: "판정 가이드",
+            blog: "블로그"
         },
         hero: {
             season_update: "2024-2025 시즌 규칙 업데이트",
@@ -40,7 +41,9 @@ export const dictionary = {
                 nba: "NBA"
             },
             search_placeholder: "규칙 검색...",
-            no_results: "\"{query}\"에 대한 검색 결과가 없습니다."
+            no_results: "\"{query}\"에 대한 검색 결과가 없습니다.",
+            verdict: "판정 결과",
+            official_interpretation: "공식 해설"
         },
         rule_card: {
             easy_summary: "쉬운 요약",
@@ -174,7 +177,16 @@ export const dictionary = {
             restart: "다시 도전하기",
             correct: "정답입니다! 👏",
             incorrect: "오답입니다. 😅",
-            next: "다음 문제"
+            next: "다음 문제",
+            explanation: "해설:",
+            ranks: {
+                fiba: "FIBA 국제 심판",
+                pro: "프로 심판",
+                amateur: "동호회 심판",
+                rookie: "루키"
+            },
+            streak: "최대 {n}연속 정답!",
+            combo: "🔥 {n} 콤보!"
         },
         community_page: {
             title: "판정 가이드",
@@ -198,7 +210,8 @@ export const dictionary = {
             local: "Local",
             gear: "Gear",
             quiz: "Quiz",
-            community: "Case Studies"
+            community: "Case Studies",
+            blog: "Blog"
         },
         hero: {
             season_update: "2024-2025 Season Rules Updated",
@@ -227,7 +240,9 @@ export const dictionary = {
                 nba: "NBA"
             },
             search_placeholder: "Search rules...",
-            no_results: "No rules found matching \"{query}\"."
+            no_results: "No rules found matching \"{query}\".",
+            verdict: "Verdict",
+            official_interpretation: "Official Interpretation"
         },
         rule_card: {
             easy_summary: "Easy Summary",
@@ -361,7 +376,16 @@ export const dictionary = {
             restart: "Try Again",
             correct: "Correct! 👏",
             incorrect: "Wrong. 😅",
-            next: "Next Question"
+            next: "Next Question",
+            explanation: "Explanation:",
+            ranks: {
+                fiba: "FIBA Official",
+                pro: "Pro Referee",
+                amateur: "Amateur Referee",
+                rookie: "Rookie"
+            },
+            streak: "Max Streak: {n}!",
+            combo: "🔥 {n} Combo!"
         },
         community_page: {
             title: "Case Studies",
@@ -385,7 +409,8 @@ export const dictionary = {
             local: "ローカルルール",
             gear: "用具",
             quiz: "クイズ",
-            community: "ケーススタディ"
+            community: "ケーススタディ",
+            blog: "ブログ"
         },
         hero: {
             season_update: "2024-2025シーズン ルール更新",
@@ -414,7 +439,9 @@ export const dictionary = {
                 nba: "NBA"
             },
             search_placeholder: "ルールを検索...",
-            no_results: "\"{query}\" に対する検索結果がありません。"
+            no_results: "\"{query}\" に対する検索結果がありません。",
+            verdict: "判定結果",
+            official_interpretation: "公式解説"
         },
         rule_card: {
             easy_summary: "簡単な要約",
@@ -548,7 +575,16 @@ export const dictionary = {
             restart: "再挑戦する",
             correct: "正解です！ 👏",
             incorrect: "不正解です。 😅",
-            next: "次の問題"
+            next: "次の問題",
+            explanation: "解説：",
+            ranks: {
+                fiba: "FIBA国際審判",
+                pro: "プロ審判",
+                amateur: "アマチュア審判",
+                rookie: "ルーキー"
+            },
+            streak: "最大 {n} 連続正解！",
+            combo: "🔥 {n} コンボ！"
         },
         community_page: {
             title: "ケーススタディ",

@@ -12,20 +12,35 @@ import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 
+import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+
 interface RuleCardProps {
     rule: Rule;
     defaultTab?: "fiba2025" | "nba";
+    href?: string;
 }
 
-export function RuleCard({ rule, defaultTab = "fiba2025" }: RuleCardProps) {
+export function RuleCard({ rule, defaultTab = "fiba2025", href }: RuleCardProps) {
     const { language, dict } = useLanguage();
 
     return (
-        <Card className="w-full">
+        <Card className="w-full h-full flex flex-col">
             <CardHeader>
-                <div className="flex items-center justify-between">
-                    <CardTitle>{rule.title[language]}</CardTitle>
-                    <Badge variant="outline">{rule.category}</Badge>
+                <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-2">
+                        <CardTitle>
+                            {href ? (
+                                <Link href={href} className="hover:underline hover:text-primary transition-colors flex items-center gap-2">
+                                    {rule.title[language]}
+                                    <ExternalLink className="h-4 w-4 opacity-50" />
+                                </Link>
+                            ) : (
+                                rule.title[language]
+                            )}
+                        </CardTitle>
+                    </div>
+                    <Badge variant="outline" className="whitespace-nowrap">{rule.category}</Badge>
                 </div>
                 <CardDescription>{rule.description[language]}</CardDescription>
             </CardHeader>
